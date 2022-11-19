@@ -34,10 +34,10 @@ The creation of a local Kubernetes cluster that will allow you to access a servi
 
 **Windows**
 Download the contents of this repository, open an Administrator Powershell window, change to the path where the files are saved and execute:\
-`terraform init`
+`terraform init`\
 This will download the required terraform providers.
 
-Before executing the following script please be sure to have all prerequisites deployed on your machine.
+Before executing the following script please be sure to have all [prerequisites](https://github.com/davidbretons/k8s_terraform_hextris#prerequisites) deployed on your machine.
 
 A powershell script has been provided to facilitate the creation of the project. Conect on the Powershell script:\
 
@@ -53,6 +53,17 @@ Start-Sleep 10
 Execute: \
 `.\run.ps1`
 
+Wait for the execution to complete. This might take time depending on your machine and if its the first time you execute the script. Once completed the script you can verify the state of the cluster with the followin command:\
+
+`kubectl get all -A`
+
+Make sure all pods have a Running state to ensure the expected output.
+
+Once you are sure the cluster was properly created and running, open a browser window and type:\
+
+`http://localhost`
+
+You should be able to see a new session of Hextris game. Have fun!
 
 ## Known problems and limitations
 
