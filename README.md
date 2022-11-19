@@ -32,6 +32,27 @@ The creation of a local Kubernetes cluster that will allow you to access a servi
 
 ## Procedure
 
+**Windows**
+Download the contents of this repository, open an Administrator Powershell window, change to the path where the files are saved and execute:\
+`terraform init`
+This will download the required terraform providers.
+
+Before executing the following script please be sure to have all prerequisites deployed on your machine.
+
+A powershell script has been provided to facilitate the creation of the project. Conect on the Powershell script:\
+
+```
+terraform apply -auto-approve
+Start-Sleep 10
+Write-Output "Waiting for the service to start..."
+kubectl delete ValidatingWebhookCOnfiguration ingress-nginx-admission
+kubectl apply -f chart.yaml
+Start-Sleep 10
+```
+
+Execute: \
+`.\run.ps1`
+
 
 ## Known problems and limitations
 
