@@ -19,18 +19,16 @@ The creation of a local Kubernetes cluster that will allow you to access a servi
 
 ## Prerequisites
 
-* terraform [Installation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+* terraform [Installation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)\
 `terraform -version`
-* kind [Installation](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)
+* kind [Installation](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)\
 `kind --version`
-* docker [Installation](https://docs.docker.com/get-docker/)
+* docker [Installation](https://docs.docker.com/get-docker/)\
 `docker --version`
-* helm [Installation](https://helm.sh/docs/intro/install/)
+* helm [Installation](https://helm.sh/docs/intro/install/)\
 `helm`
-* kubectl [Installation](https://kubernetes.io/docs/tasks/tools/#kubectl)
-```
-kubectl
-```
+* kubectl [Installation](https://kubernetes.io/docs/tasks/tools/#kubectl)\
+`kubectl`
 
 ## Procedure
 
