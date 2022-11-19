@@ -1,9 +1,7 @@
 
 # Synopsis
 
-This project is an example on how to deploy an app using Helm Charts in a Kubernetes Cluster.
-
-The deployment is automated using Terraform.
+This project is an example on how to deploy an app using Helm Charts in a Kubernetes Cluster (KinD) using ingress-nginx as a reverse proxy. We use Terraform to automate the deployment.
 
 
 **Default sources for the content used in this project**
