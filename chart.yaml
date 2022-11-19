@@ -1,0 +1,38 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: hextris-app
+  labels:
+    app: hextris
+spec:
+  containers:
+  - name: hextris-app
+    image: davidbreton/hextris:latest
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hextris-service
+spec:
+  selector:
+    app: hextris
+  ports:
+  # Default port used by the image
+  - port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: deployment
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: hextris-service
+            port:
+              number: 80
+---
