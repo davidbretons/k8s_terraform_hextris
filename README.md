@@ -1,6 +1,5 @@
-# README
 
-## Synopsis
+# Synopsis
 
 This project is an example on how to deploy an app using Helm Charts in a Kubernetes Cluster.
 
@@ -13,11 +12,11 @@ Hextris Game:\
 https://github.com/Hextris/hextris
 
 
-## Results from execution
+# Results from execution
 
 The creation of a local Kubernetes cluster that will allow you to access a service of Hextris over localhost using Ingress Nginx. 
 
-## Prerequisites
+# Prerequisites
 
 * terraform [Installation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)\
 `terraform -version`
@@ -30,9 +29,10 @@ The creation of a local Kubernetes cluster that will allow you to access a servi
 * kubectl [Installation](https://kubernetes.io/docs/tasks/tools/#kubectl)\
 `kubectl`
 
-## Procedure
+# Procedure
 
-**Windows**
+## Windows
+\
 Download the contents of this repository, open an Administrator Powershell window, change to the path where the files are saved and execute:\
 `terraform init`\
 This will download the required terraform providers.
@@ -65,13 +65,13 @@ Once you are sure the cluster was properly created and running, open a browser w
 
 You should be able to see a new session of Hextris game. Have fun!
 
-## Known problems and limitations
+# Known problems and limitations
 
-* None
+* It is recommended to open a new private window on your broser to prevent any previous execution to be cached.
 
-## Examples
+# Examples
 
-## Support
+# Support
 
 **Author Information**
 
