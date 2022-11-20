@@ -3,16 +3,19 @@
 
 This project is an example on how to deploy an app using Helm Charts in a Kubernetes Cluster (KinD) using ingress-nginx as a reverse proxy. We use Terraform to automate the deployment.
 
+As a KinD cluster, this project uses a containerized version of the game using Apache httpd.
 
 **Default sources for the content used in this project**
 
 Hextris Game:\
 https://github.com/Hextris/hextris
 
+DockerHub, Hextris Image:\
+https://hub.docker.com/r/davidbreton/hextris
 
 # Results from execution
 
-The creation of a local Kubernetes cluster that will allow you to access a service of Hextris over localhost using Ingress Nginx. 
+The creation of a local Kubernetes cluster that will allow you to access a service of Hextris over localhost. 
 
 # Prerequisites
 
@@ -29,6 +32,8 @@ The creation of a local Kubernetes cluster that will allow you to access a servi
 
 # Procedure
 
+Review `global-variables.tfvars` file if you want to modify any predefined value.
+
 ## Windows
 
 Download the contents of this repository, open an Administrator Powershell window, change to the path where the files are saved and execute:\
@@ -37,15 +42,20 @@ This will download the required terraform providers.
 
 Before executing the following script please be sure to have all [prerequisites](https://github.com/davidbretons/k8s_terraform_hextris#prerequisites) deployed on your machine.
 
-A powershell script has been provided to facilitate the creation of the project. Conect on the Powershell script:\
+A powershell script has been provided to facilitate the creation of the project. Conect on the Powershell script:
 
 ```
-terraform apply -auto-approve
+# run.ps1
+
+terraform apply -var-file .\global-variables.tfvars -auto-approve
+
 Start-Sleep 10
-Write-Output "Waiting for the service to start..."
+Write-Output "Waiting for the echo web server service..."
 kubectl delete ValidatingWebhookCOnfiguration ingress-nginx-admission
 kubectl apply -f chart.yaml
 Start-Sleep 10
+
+Write-Output "Execution Completed."
 ```
 
 Execute: \
@@ -63,8 +73,8 @@ Once you are sure the cluster was properly created and running, open a browser w
 
 You should be able to see a new session of Hextris game. Have fun!
 
-To destroy the cluster execute:\
-`terraform destroy -auto-approve`
+Once you are done playing, destroy the cluster by executing:\
+`.\stop.ps1`
 
 ## Linux
 
@@ -74,14 +84,14 @@ This will download the required terraform providers.
 
 Before executing the following script please be sure to have all [prerequisites](https://github.com/davidbretons/k8s_terraform_hextris#prerequisites) deployed on your machine.
 
-A shell script has been provided to facilitate the creation of the project. Code on the shell script:\
+A shell script has been provided to facilitate the creation of the project. Code on the shell script:
 
 ```
 #!/usr/bin/env sh
 
 set -e
 
-terraform apply -auto-approve
+terraform apply -var-file .\global-variables.tfvars -auto-approve
 sleep 10
 printf "\nWaiting for the service to start... \n"
 kubectl apply -f chart.yaml
@@ -104,8 +114,9 @@ Once you are sure the cluster was properly created and running, open a browser w
 
 You should be able to see a new session of Hextris game. Have fun!
 
-To destroy the cluster execute:\
-`terraform destroy -auto-approve`
+Once you are done playing, destroy the cluster by executing:\
+`chmod +x stop.sh`
+`stop.sh`
 
 # Known problems and limitations
 

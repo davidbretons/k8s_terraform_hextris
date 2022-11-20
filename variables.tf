@@ -2,24 +2,22 @@
 
 variable "kind_cluster_name" {
   type        = string
-  description = ""
-  default     = "cluster-local"
+  description = "Name of the cluster"
+  #default     = "cluster-local"
 }
 
 variable "kind_cluster_config_path" {
   type        = string
-  description = ""
-  default     = "~/.kube/config"
+  description = "Path to use for the kubeconfig"
+#  default     = "~/.kube/config"
 }
 
 variable "ingress_nginx_helm_version" {
   type        = string
-  description = "Ingress controller for Kubernetes using NGINX as a reverse proxy and load balancer"
-  default     = "4.4.0"
+  description = "Helm version for the ingress controller"
 }
 
 variable "ingress_nginx_namespace" {
   type        = string
-  description = ""
-  default     = "ingress-nginx"
+  description = "NGIX Ingress namespace"
 }
