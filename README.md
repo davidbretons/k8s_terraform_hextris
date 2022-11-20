@@ -99,7 +99,7 @@ sleep 10
 ```
 
 Execute: \
-`chmod +x run.sh`
+`chmod +x run.sh`\
 `./run.sh`
 
 Wait for the execution to complete. This might take time depending on your machine and if its the first time you execute the script. Once completed the script you can verify the state of the cluster with the followin command:\
@@ -115,12 +115,14 @@ Once you are sure the cluster was properly created and running, open a browser w
 You should be able to see a new session of Hextris game. Have fun!
 
 Once you are done playing, destroy the cluster by executing:\
-`chmod +x stop.sh`
+`chmod +x stop.sh`\
 `stop.sh`
 
 # Known problems and limitations
 
 * It is recommended to open a new private window on your broser to prevent any previous execution to be cached.
+
+* Depending on your environment you might require to execute `run.sh` and `stop.sh` elevating priviledges with `sudo`
 
 # Examples
 
